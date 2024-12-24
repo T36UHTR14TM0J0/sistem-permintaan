@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no"   />
+	  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>KoordinatKu</title>
+  </head>
+  <body>
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-6">
+          <p>Klik Button untuk mengetahui koordinat .</p>
+
+          <button class="btn btn-primary btn-block" onclick="getLocation()">Klik Aku</button>
+        </div>
+        <div class="col-6">
+          <p id="demo"></p>
+        </div>
+      </div>
+    </div>
+
+<script>
+var x = document.getElementById("demo");
+
+window.onload = function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Browser kamu tidak support GPS :(";
+  }
+}
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    alert("Browser kamu tidak support GPS :(");
+  } else { 
+    x.innerHTML = "Browser kamu tidak support GPS :(";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
